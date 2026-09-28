@@ -344,7 +344,7 @@ export function paymentMiddlewareFromHTTPServer(
       });
   }
 
-  app.addHook("onRequest", async (request: FastifyRequest, reply: FastifyReply) => {
+  app.addHook("preValidation", async (request: FastifyRequest, reply: FastifyReply) => {
     const path = request.url.split("?")[0];
     const adapter = new FastifyAdapter(request);
     const context: HTTPRequestContext = {
